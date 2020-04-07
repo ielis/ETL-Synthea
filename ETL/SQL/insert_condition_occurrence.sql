@@ -45,7 +45,7 @@ c.code,
 ),
 NULL,
 0
-from conditions c
+from native.conditions c
 left join source_to_standard_vocab_map srctostdvm
   on srctostdvm.source_code             = c.code
  and srctostdvm.target_domain_id        = 'Condition'

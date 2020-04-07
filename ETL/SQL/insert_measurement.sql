@@ -51,7 +51,7 @@ select srctosrcvm.source_concept_id
 cast(null as varchar),
 cast(null as varchar)
 
-from procedures pr
+from native.procedures pr
 join source_to_standard_vocab_map srctostdvm
   on srctostdvm.source_code             = pr.code
  and srctostdvm.target_domain_id        = 'Measurement'
@@ -91,7 +91,7 @@ select srctosrcvm.source_concept_id
 cast(null as varchar),
 cast(null as varchar)
 
-from observations o
+from native.observations o
 join source_to_standard_vocab_map srctostdvm
   on srctostdvm.source_code             = o.code
  and srctostdvm.target_domain_id        = 'Measurement'

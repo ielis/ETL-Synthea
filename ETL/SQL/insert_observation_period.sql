@@ -18,7 +18,7 @@ select p.person_id,
        min(e.start) start_date,
 	   max(e.start) end_date
   from person p
-  join encounters e
+  join native.encounters e
     on p.person_source_value = e.patient
  group by p.person_id
        ) tmp;

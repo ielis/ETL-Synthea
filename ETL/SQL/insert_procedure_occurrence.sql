@@ -39,7 +39,7 @@ select srctosrcvm.source_concept_id
 ),
 NULL
 
-from procedures pr
+from native.procedures pr
 join source_to_standard_vocab_map srctostdvm
   on srctostdvm.source_code             = pr.code
  and srctostdvm.target_domain_id        = 'Procedure'

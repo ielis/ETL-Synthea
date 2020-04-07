@@ -43,7 +43,10 @@ coalesce(c.stop-c.start,0),
 cast(null as varchar),
 0,
 0,
-NULL,
+-- NULL was replaced by `0` after observing the error:
+--   ERROR:  column "provider_id" is of type integer but expression is of type text
+--NULL,
+0,
 (select fv.visit_occurrence_id_new from final_visit_ids fv
   where fv.encounter_id = c.encounter) visit_occurrence_id,
 0,
@@ -57,7 +60,7 @@ select srctosrcvm.source_concept_id
 cast(null as varchar),
 cast(null as varchar)
 
-from conditions c
+from native.conditions c
 join source_to_standard_vocab_map srctostdvm
   on srctostdvm.source_code             = c.code
  and srctostdvm.target_domain_id        = 'Drug'
@@ -100,7 +103,7 @@ select srctosrcvm.source_concept_id
 cast(null as varchar),
 cast(null as varchar)
 
-from medications m
+from native.medications m
 join source_to_standard_vocab_map srctostdvm
   on srctostdvm.source_code             = m.code
  and srctostdvm.target_domain_id        = 'Drug'
@@ -143,7 +146,7 @@ select srctosrcvm.source_concept_id
 cast(null as varchar),
 cast(null as varchar)
 
-from immunizations i
+from native.immunizations i
 join source_to_standard_vocab_map srctostdvm
   on srctostdvm.source_code             = i.code
  and srctostdvm.target_domain_id        = 'Drug'

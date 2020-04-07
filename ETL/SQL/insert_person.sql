@@ -52,5 +52,5 @@ select
 	0,                        
 	p.ethnicity,                 
 	0                             
-	from patients p
+	from native.patients p
 	where p.gender is not null;

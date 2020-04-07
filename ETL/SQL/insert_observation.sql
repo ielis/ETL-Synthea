@@ -47,7 +47,7 @@ select srctosrcvm.source_concept_id
 cast(null as varchar),
 cast(null as varchar)
 
-from allergies a
+from native.allergies a
 join source_to_standard_vocab_map srctostdvm
   on srctostdvm.source_code             = a.code
  and srctostdvm.target_domain_id        = 'Observation'
@@ -85,7 +85,7 @@ select srctosrcvm.source_concept_id
 cast(null as varchar),
 cast(null as varchar)
 
-from conditions c
+from native.conditions c
 join source_to_standard_vocab_map srctostdvm
   on srctostdvm.source_code             = c.code
  and srctostdvm.target_domain_id        = 'Observation'
